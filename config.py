@@ -22,7 +22,7 @@ class Config:
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[西部开源]'
-    FLASKY_MAIL_SENDER = '976131979@qq.com'
+    FLASKY_MAIL_SENDER = '1147570523@qq.com'
 
     @staticmethod
     def init_app(app):
@@ -38,10 +38,10 @@ class DevelopmentConfig(Config):
     MAIL_SERVER = 'smtp.qq.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or '976131979'
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or '1147570523'
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or '密码'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
-
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:westos@localhost/TodoList'
 
 class TestingConfig(Config):
     """
@@ -55,9 +55,7 @@ class ProductionConfig(Config):
     """
    生产环境的配置信息
    """
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir,
-                                                          'data.sqlite')
-
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir,'data.sqlite')
 
 config = {
     'development': DevelopmentConfig,

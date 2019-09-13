@@ -7,9 +7,12 @@ Desc:
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager, Shell
 from app import create_app, db
+from app import models
+
 app = create_app('default')
 manager = Manager(app)
 migrate = Migrate(app, db)
+
 def make_shell_context():
    return dict(app=app, db=db)
 # 初始化 Flask-Script、Flask-Migrate 和为 Python shell 定义的上下文。
